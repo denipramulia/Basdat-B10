@@ -42,19 +42,16 @@
 	</head>
 
 	<body style="overflow-x:hidden">
-		<div class="header">
-			<div id="navWrapper">
-				<nav id="mainNavigation" class="navbar navbar-inverse navbar-fixed-top">
-					<div class="container-fluid">
-						<div class="navbar-header">
-					    	<h3 class="navbar-title" href="#">
-					    		SISIDANG
-					    	</h3>
-						</div>
-					</div>
-				</nav>
-			</div>
-		</div>
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">SISIDANG</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      
+		    </ul>
+		  </div>
+		</nav>
 
 
 		<div class="outer">
@@ -64,7 +61,7 @@
 						<h1>Login</h1>
 						<input id="username" type="text" name="username" placeholder="Username">
 						<input id="password" type="password" name="password" placeholder="Password">
-						<button type="submit" id="login-button">
+						<button onclick="jadwal.php" type="submit" id="login-button">
 						Login</button>
 					</form>
 				</div>

@@ -4,9 +4,50 @@
 
 .tabel-jadwal {
 	width: 100%;
-	max-width: 800px;
+	max-width: 500px;
+	text-align: center;
 }
 
+.tabel-jadwal .btn-group{
+	display: inline-block;
+}
+
+.tabel-jadwal .container-fluid {
+	height: 100%; 
+	font-size: 0;
+	padding: 0 50px;
+}
+
+.col-md-9 {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.tabel-jadwal #left p {
+	font-size-adjust: 0.80;
+}
+
+#btn-tambah {
+	background-color: #000033;
+}
+
+
+
+/*.tabel-jadwal #left {
+
+	display: inline-block; 
+	*display: inline; 
+	zoom: 1; 
+	vertical-align: top;
+}
+
+.tabel-jadwal #right {
+
+	display: inline-block; 
+	*display: inline; 
+	zoom: 1; 
+	vertical-align: top;
+}*/
 
 @media 
 only screen and (max-width: 760px),

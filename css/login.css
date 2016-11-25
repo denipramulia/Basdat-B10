@@ -26,7 +26,7 @@ form input:focus
 form button
 {
 	color: white;
-	background-color: #3333ff;
+	background-color: black;
 	outline: 0;
 	border: 0;
 	padding: 10px 15px;
@@ -41,7 +41,7 @@ form button
 }	
 
 button:hover{
-	background-color: #000099;
+	background-color: #000033;
 }
 
 .outer {

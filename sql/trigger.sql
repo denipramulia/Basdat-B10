@@ -18,6 +18,7 @@ CREATE TRIGGER cek_siap_sidang
     FOR EACH ROW
     EXECUTE PROCEDURE siap_sidang();
 
+BEGIN;
 CREATE OR REPLACE FUNCTION enforce_timeline() RETURNS TRIGGER AS
 $BODY$
 	BEGIN
@@ -29,21 +30,21 @@ $BODY$
 	        	FROM 	SISIDANG.TIMELINE 
 	        	WHERE 	NamaEvent = 'Berkas Sidang'
 	        		AND	Tahun = new.Tahun
-	        		AND Semester = new.Semester;
-        	)
+	        		AND Semester = new.Semester
+        	) THEN
             	RAISE EXCEPTION 'masa pengumpulan hardcopy telah berlalu';
         	END IF;
         END IF;
         
         IF IjinMajuSidang <> new.IjinMajuSidang THEN
-	        IF current_timestamp > 
+	        IF current_date > 
 	        (
 	        	SELECT 	Tanggal
 	        	FROM 	SISIDANG.TIMELINE 
 	        	WHERE 	NamaEvent = 'Pemberian izin maju Sidang oleh pembimbing'
 	        		AND	Tahun = new.Tahun
-	        		AND Semester = new.Semester;
-        	)
+	        		AND Semester = new.Semester
+        	) THEN
         	    RAISE EXCEPTION 'masa pemberian izin maju sidang telah berlalu';
         	END IF;
         END IF;
@@ -58,20 +59,19 @@ CREATE TRIGGER cek_timeline
     FOR EACH ROW
     EXECUTE PROCEDURE enforce_timeline();
 
-
+BEGIN;
 CREATE OR REPLACE FUNCTION jadwal_dosen() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF current_timestamp > 
+    IF current_date > 
     (
     	SELECT 	Tanggal
     	FROM 	SISIDANG.TIMELINE 
     	WHERE 	NamaEvent = 'P'
     		AND	Tahun = new.Tahun
     		AND Semester = new.Semester
-    		AND NamaEvent = 'Pengisian jadwal pribadi oleh dosen
-    		';
-	)
+    		AND NamaEvent = 'Pengisian jadwal pribadi oleh dosen'
+	) THEN
     	RAISE EXCEPTION 'masa pemberian izin maju sidang telah berlalu';
     END IF;
     RETURN NEW;
