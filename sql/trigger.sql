@@ -67,10 +67,9 @@ BEGIN
     (
     	SELECT 	Tanggal
     	FROM 	SISIDANG.TIMELINE 
-    	WHERE 	NamaEvent = 'P'
+    	WHERE 	NamaEvent = 'Pengisian jadwal pribadi oleh dosen'
     		AND	Tahun = new.Tahun
     		AND Semester = new.Semester
-    		AND NamaEvent = 'Pengisian jadwal pribadi oleh dosen'
 	) THEN
     	RAISE EXCEPTION 'masa pemberian izin maju sidang telah berlalu';
     END IF;

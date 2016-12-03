@@ -5,25 +5,45 @@
     
 	global $conn;
 
+	// if(mysql_ping()){
+	// 	echo "konek";
+	// }
+
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		if(isset($_POST["username"]) && isset($_POST["password"])){
 			$myusername = $_POST["username"];
 			$mypassword = $_POST["password"];
 
-			$query = "SELECT * FROM MAHASISWA WHERE username='$myusername' AND password='$mypassword'";
+			$query = "SELECT * FROM MAHASISWA WHERE Username='$myusername' AND Password='$mypassword'";
 			$result = mysqli_query($conn, $query);
 			$row = mysqli_fetch_assoc($result);
-			if($row["username"] == $myusername)
+			if($row["Username"] == $myusername)
 			{
-				if($row["password"] == $mypassword)
+				if($row["Password"] == $mypassword)
 				{
-					$_SESSION["activeuser"] = $row["username"];
-					$_SESSION["log_id"] = $row["id"];
-					header("Location: home.php");
+					$_SESSION["activeuser"] = $row["Username"];
+					$_SESSION["log_id"] = $row["NPM"];
+					$_SESSION["user_type"] = "mahasiswa";
+					header("Location: jadwal.php");
 				}
 			}
+			$query = "SELECT * FROM dosen WHERE Username='$myusername' AND Password='$mypassword'";
+			$result = mysqli_query($conn, $query);
+			$row = mysqli_fetch_assoc($result);
+			if($row["Username"] == $myusername)
+			{
+				if($row["Password"] == $mypassword)
+				{
+					$_SESSION["activeuser"] = $row["username"];
+					$_SESSION["log_id"] = $row["nip"];
+					$_SESSION["user_type"] = "dosen";
+					header("Location: jadwal.php");
+				}
+			}
+			
 			else
 			{
+				echo $myusername . $mypassword;
 				echo "the combination of username and password is invalid";
 			}
 		}

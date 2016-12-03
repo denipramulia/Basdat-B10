@@ -5,29 +5,36 @@
     
 	global $conn;
 
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		if(isset($_POST["username"]) && isset($_POST["password"])){
-			$myusername = $_POST["username"];
-			$mypassword = $_POST["password"];
+	$user_type = $_SESSION["user_type"];
+	$username = $_SESSION["activeuser"];
+	$log_id = $_SESSION["log_id"];
 
-			$query = "SELECT * FROM MAHASISWA WHERE username='$myusername' AND password='$mypassword'";
-			$result = mysqli_query($conn, $query);
-			$row = mysqli_fetch_assoc($result);
-			if($row["username"] == $myusername)
-			{
-				if($row["password"] == $mypassword)
-				{
-					$_SESSION["activeuser"] = $row["username"];
-					$_SESSION["log_id"] = $row["id"];
-					header("Location: home.php");
-				}
-			}
-			else
-			{
-				echo "the combination of username and password is invalid";
-			}
-		}
-	}	
+	if ($_SESSION["user_type"] == "mahasiswa") {
+		$query = "SELECT * FROM mata_kuliah_spesial WHERE npm = $log_id";
+		$result = mysqli_query($conn, $query);
+		$mks = mysqli_fetch_assoc($result);
+		$IdMKS = $mks['IdMKS']; 
+
+		$query = "SELECT * FROM jadwal_sidang WHERE IdMKS = $IdMKS";
+		$result = mysqli_query($conn, $query);
+		$jadwal = mysqli_fetch_assoc($result);
+
+		$query = "SELECT * FROM dosen INNER JOIN dosen_pembimbing ON dosen.NIP = dosen_pembimbing.NIPdosenpembimbing WHERE IDMKS = $IdMKS";
+		$result = mysqli_query($conn, $query);
+		$pembimbing = mysqli_fetch_assoc($result);
+
+		$query = "SELECT * FROM dosen INNER JOIN dosen_penguji ON dosen.NIP = dosen_penguji.NIPdosenpenguji WHERE IDMKS = $IdMKS";
+		$result = mysqli_query($conn, $query);
+		$penguji = mysqli_fetch_assoc($result);
+	}
+	if ($_SESSION["user_type"] == "dosen"){
+		$query = "SELECT * FROM mata_kuliah_spesial 
+				  INNER JOIN dosen_penguji 
+				  ON mata_kuliah_spesial.IdMKS = dosen_penguji.IDMKS 
+				  WHERE NIPdosenpenguji = CAST($log_id as varchar(20))";
+		$result = mysqli_query($conn, $query);
+		$mksuji = mysqli_fetch_assoc($result);
+	}
 ?>
 
 <!Doctype html>
@@ -48,17 +55,16 @@
 		      <a class="navbar-brand" href="#">SISIDANG</a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="#">Home</a></li>
+		      <li><a href="home.php">Home</a></li>
 		      <li><a href="#">Tambah Peserta MKS</a></li>
 		      <li><a href="#">Buat Jadwal Sidang MKS</a></li> 
 		      <li><a href="#">Buat Jadwal Non-Sidang Dosen</a></li>
-		      <li><a href="#">Lihat Jadwal Sidang</a></li>
+		      <li class="active"><a href="#">Lihat Jadwal Sidang</a></li>
 		      <li><a href="#">Lihat Daftar MKS</a></li> 
-		      <li><a href="login.php">Logout</a></li> 
+		      <li><a href="logout.php">Logout</a></li> 
 		    </ul>
 		  </div>
 		</nav>
-
 
 
 		<div class="tabel-jadwal container">
@@ -94,51 +100,140 @@
 						    <td>Budi Gunawan</td>
 						    <td>Edit</td>
 						</tr>
-						<tr>
-						    <td>Aan Kurniawan</td>
-							<td>Skripsi</td> 
-						    <td>Sistem Operasi Masa Depan</td>
-						    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-						    <td>Ani Sulistyowati</td>
-						    <td>Budi Gunawan</td>
-						    <td>Edit</td>
-						</tr>
-						<tr>
-						    <td>Aan Kurniawan</td>
-							<td>Skripsi</td> 
-						    <td>Sistem Operasi Masa Depan</td>
-						    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-						    <td>Ani Sulistyowati</td>
-						    <td>Budi Gunawan</td>
-						    <td>Edit</td>
-						</tr>
-						<tr>
-						    <td>Aan Kurniawan</td>
-							<td>Skripsi</td> 
-						    <td>Sistem Operasi Masa Depan</td>
-						    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-						    <td>Ani Sulistyowati</td>
-						    <td>Budi Gunawan</td>
-						    <td>Edit</td>
-						</tr>
-						<tr>
-						    <td>Aan Kurniawan</td>
-							<td>Skripsi</td> 
-						    <td>Sistem Operasi Masa Depan</td>
-						    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-						    <td>Ani Sulistyowati</td>
-						    <td>Budi Gunawan</td>
-						    <td>Edit</td>
-						</tr>
 					</tbody>
-				</table>
-			</div>
-			<div class="row">
-				<div class="col-md-1 pull-right">
-					<button id="btn-tambah" class="btn btn-primary">Tambah</button>
-				</div>
 			</div>
 		</div>
+
+
+		<div class="tabel-jadwal container">
+			<?php 
+				if($_SESSION["user_type"] == "admin"){
+					echo 
+					"
+						<div class='row'>
+							<div class='col-md-1'><p id='left'>Sort by: </p></div>
+							<div id='right' class='col-md-9' role='group' aria-label='...'>
+								<button type='button' class='btn btn-default'>Mahasiswa</button>
+								<button type='button' class='btn btn-default'>Jenis Sidang</button>
+								<button type='button' class='btn btn-default'>Waktu</button>
+							</div>
+						</div>
+						<br>
+						<div class='row'>
+							<table class='table table-striped'>
+								<thead>
+						  			<tr>
+										<th>Mahasiswa</th>
+										<th>Jenis Sidang</th> 
+										<th>Judul</th>
+										<th>Waktu dan Lokasi</th>
+										<th>Dosen Pembimbing</th>
+										<th>Dosen Penguji</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Aan Kurniawan</td>
+										<td>Skripsi</td> 
+									    <td>Sistem Operasi Masa Depan</td>
+									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
+									    <td>Ani Sulistyowati</td>
+									    <td>Budi Gunawan</td>
+									    <td>Edit</td>
+									</tr>
+									<tr>
+									    <td>Aan Kurniawan</td>
+										<td>Skripsi</td> 
+									    <td>Sistem Operasi Masa Depan</td>
+									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
+									    <td>Ani Sulistyowati</td>
+									    <td>Budi Gunawan</td>
+									    <td>Edit</td>
+									</tr>
+									<tr>
+									    <td>Aan Kurniawan</td>
+										<td>Skripsi</td> 
+									    <td>Sistem Operasi Masa Depan</td>
+									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
+									    <td>Ani Sulistyowati</td>
+									    <td>Budi Gunawan</td>
+									    <td>Edit</td>
+									</tr>
+									<tr>
+									    <td>Aan Kurniawan</td>
+										<td>Skripsi</td> 
+									    <td>Sistem Operasi Masa Depan</td>
+									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
+									    <td>Ani Sulistyowati</td>
+									    <td>Budi Gunawan</td>
+									    <td>Edit</td>
+									</tr>
+									<tr>
+									    <td>Aan Kurniawan</td>
+										<td>Skripsi</td> 
+									    <td>Sistem Operasi Masa Depan</td>
+									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
+									    <td>Ani Sulistyowati</td>
+									    <td>Budi Gunawan</td>
+									    <td>Edit</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class='row'>
+							<div class='col-md-1 pull-right'>
+								<button id='btn-tambah' class='btn btn-primary'>Tambah</button>
+							</div>
+						</div>
+					";
+				}
+				if($_SESSION["user_type"] == "mahasiswa"){
+					if($mks['IjinMajuSidang'] == TRUE) {
+				   		$ijin = "Diizinkan maju sidang, ";
+				   	}
+				   	else{
+				   		$ijin = "Belum diizinkan maju sidang, ";
+				   	}
+				   	if($mks["PengumpulanHardCopy"] == TRUE) {
+				   		$kumpul = "Hardcopy telah dikumpulkan";
+				   	}
+				   	else{
+				   		$kumpul = "Hardcopy belum dikumpulkan";
+				   	}
+				   	$judul = $mks['Judul'];
+				   	$tanggal = $jadwal['Tanggal'];
+				   	$JamMulai = $jadwal['JamMulai'];
+				   	$pembimbing = $pembimbing['Nama'];
+				   	$penguji = $penguji['Nama'];
+					echo "
+					<div class='row'>
+					<table class='table table-reflow'>
+						<thead>
+							<th>Judul Tugas Akhir</th>
+							<th>Jadwal Sidang</th>
+							<th>Waktu Sidang</th>
+							<th>Dosen Pembimbing</th>
+							<th>Status</th>
+							<th>Dosen Penguji</th>
+						</thead>
+						<tbody>
+			    			<td>$judul</td>
+			    			<td>$tanggal</td>
+			    			<td>$JamMulai</td>
+			    			<td>$pembimbing</td>
+			    			<td>$ijin, $kumpul</td>
+					    	<td>$penguji</td>
+			    		</tbody>
+					</table>
+					</div>";
+				}
+				if($_SESSION["user_type"] == "dosen"){
+					
+				}
+			?>
+		</div>
+		
 
 
 		

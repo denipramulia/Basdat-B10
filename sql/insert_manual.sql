@@ -97,6 +97,39 @@ INSERT INTO DOSEN (NIP,nama,username,password,email,institusi) VALUES ('20110105
 
 
 
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612001','1006348908','2016','1','Sistem Operasi Masa Depan','TRUE','FALSE','TRUE','42016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612002','1006493867','2017','2','Android vs Apple','FALSE','FALSE','FALSE','12016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612003','1006900890','2017','2','Kelemahan Dynamic Programming','FALSE','TRUE','FALSE','32016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612004','1106384953','2018','3','Terminator ','TRUE','FALSE','FALSE','42016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612005','1106389934','2016','1','Himpunan kosong','FALSE','TRUE','FALSE','52016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612006','1106482954','2017','2','Modulo -e','TRUE','FALSE','TRUE','22016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612007','1106586720','2018','3','Tingkat tidur mahasiswa','TRUE','TRUE','FALSE','82016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612008','1206292534','2017','2','Penjagalan sapi di madiun','TRUE','TRUE','TRUE','92016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612009','1206382759','2016','1','Pembunuhan Jessica','FALSE','TRUE','FALSE','12016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612010','1206384498','2016','1','Kejanggalan Mirna','TRUE','FALSE','FALSE','82016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612011','1206473097','2018','3','Rasa kopi vietnam','FALSE','TRUE','FALSE','52016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612012','1206488890','2017','2','Sianida tidak bisa melelehkan lambung','TRUE','FALSE','TRUE','72016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612013','1306183746','2016','1','Makanan terenak didunia','FALSE','FALSE','FALSE','42016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612014','1306234333','2016','1','Rendang vs Sate','FALSE','FALSE','FALSE','12016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612015','1306244445','2017','2','Sharknado itu benar?','TRUE','TRUE','TRUE','12016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612016','1306382950','2017','2','Mama minta pulsa','FALSE','FALSE','FALSE','22016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612017','1306395827','2016','1','Papa minta saham','FALSE','FALSE','FALSE','72016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612018','1306482390','2018','3','Anak minta jabatan gubernur','TRUE','TRUE','FALSE','42016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612019','1306482940','2018','3','Yahudi dibalik perang dunia 3','FALSE','FALSE','FALSE','52016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612020','1306492043','2018','3','Semua salah Amerika','TRUE','FALSE','TRUE','82016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612021','1306573819','2017','2','Freemason menguasai dunia','FALSE','FALSE','FALSE','22016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612022','1206292534','2016','1','Konspirasi liberal','TRUE','FALSE','FALSE','12016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612023','1206382759','2018','3','Legalitas FEB di UIAW','FALSE','TRUE','FALSE','72016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612024','1206384498','2016','1','Pengaruh kehilangan pulpen dengan kematian','FALSE','TRUE','FALSE','12016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612025','1306234333','2017','2','Lycantulul vs werewolf','TRUE','FALSE','TRUE','42016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612026','1306244445','2018','3','Europa Universalis lebih bagus dibanding Civilization','FALSE','TRUE','FALSE','72016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612027','1306482390','2018','3','Konspirasi Gabe menguasai game','TRUE','FALSE','FALSE','52016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612028','1406472842','2016','1','Piratebay pindah ke Indonesia','FALSE','TRUE','FALSE','12016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612029','1406482910','2018','3','Pengaruh RPL dengan PPL','TRUE','FALSE','FALSE','82016');
+INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612030','1406571844','2017','2','Kebergunaan Mata Kuliah di Fasilkom','TRUE','FALSE','TRUE','72016');
+
+
+
 
 
 INSERT INTO DOSEN_PENGUJI (IDMKS,NIPdosenpenguji) VALUES ('201612001','2014011201021940');
@@ -141,39 +174,6 @@ INSERT INTO DOSEN_PENGUJI (IDMKS,NIPdosenpenguji) VALUES ('201612029','201401062
 INSERT INTO DOSEN_PENGUJI (IDMKS,NIPdosenpenguji) VALUES ('201612030','2014020823111960');
 
 
-
-
-
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612001','1006348908','2016','1','Sistem Operasi Masa Depan','TRUE','FALSE','TRUE','42016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612002','1006493867','2017','2','Android vs Apple','FALSE','FALSE','FALSE','12016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612003','1006900890','2017','2','Kelemahan Dynamic Programming','FALSE','TRUE','FALSE','32016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612004','1106384953','2018','3','Terminator ','TRUE','FALSE','FALSE','42016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612005','1106389934','2016','1','Himpunan kosong','FALSE','TRUE','FALSE','52016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612006','1106482954','2017','2','Modulo -e','TRUE','FALSE','TRUE','22016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612007','1106586720','2018','3','Tingkat tidur mahasiswa','TRUE','TRUE','FALSE','82016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612008','1206292534','2017','2','Penjagalan sapi di madiun','TRUE','TRUE','TRUE','92016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612009','1206382759','2016','1','Pembunuhan Jessica','FALSE','TRUE','FALSE','12016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612010','1206384498','2016','1','Kejanggalan Mirna','TRUE','FALSE','FALSE','82016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612011','1206473097','2018','3','Rasa kopi vietnam','FALSE','TRUE','FALSE','52016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612012','1206488890','2017','2','Sianida tidak bisa melelehkan lambung','TRUE','FALSE','TRUE','72016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612013','1306183746','2016','1','Makanan terenak didunia','FALSE','FALSE','FALSE','42016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612014','1306234333','2016','1','Rendang vs Sate','FALSE','FALSE','FALSE','12016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612015','1306244445','2017','2','Sharknado itu benar?','TRUE','TRUE','TRUE','12016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612016','1306382950','2017','2','Mama minta pulsa','FALSE','FALSE','FALSE','22016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612017','1306395827','2016','1','Papa minta saham','FALSE','FALSE','FALSE','72016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612018','1306482390','2018','3','Anak minta jabatan gubernur','TRUE','TRUE','FALSE','42016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612019','1306482940','2018','3','Yahudi dibalik perang dunia 3','FALSE','FALSE','FALSE','52016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612020','1306492043','2018','3','Semua salah Amerika','TRUE','FALSE','TRUE','82016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612021','1306573819','2017','2','Freemason menguasai dunia','FALSE','FALSE','FALSE','22016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612022','1206292534','2016','1','Konspirasi liberal','TRUE','FALSE','FALSE','12016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612023','1206382759','2018','3','Legalitas FEB di UIAW','FALSE','TRUE','FALSE','72016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612024','1206384498','2016','1','Pengaruh kehilangan pulpen dengan kematian','FALSE','TRUE','FALSE','12016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612025','1306234333','2017','2','Lycantulul vs werewolf','TRUE','FALSE','TRUE','42016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612026','1306244445','2018','3','Europa Universalis lebih bagus dibanding Civilization','FALSE','TRUE','FALSE','72016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612027','1306482390','2018','3','Konspirasi Gabe menguasai game','TRUE','FALSE','FALSE','52016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612028','1406472842','2016','1','Piratebay pindah ke Indonesia','FALSE','TRUE','FALSE','12016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612029','1406482910','2018','3','Pengaruh RPL dengan PPL','TRUE','FALSE','FALSE','82016');
-INSERT INTO MATA_KULIAH_SPESIAL (IdMKS,NPM,Tahun,Semester,Judul,IsSiapSidang,PengumpulanHardCopy,IjinMajuSidang,IdJenisMKS) VALUES ('201612030','1406571844','2017','2','Kebergunaan Mata Kuliah di Fasilkom','TRUE','FALSE','TRUE','72016');
 
 
 
@@ -234,16 +234,16 @@ INSERT INTO SARAN_DOSEN_PENGUJI (IDMKS,NIPsaranpenguji) VALUES ('201612030','200
 
 
 
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('101','Submit Judul','2016-20-3','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('102','Submit Proposal','2016-13-4','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('103','Pengumpulan Berkas','2016-20-4','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('104','Submit Draft Pertama','2016-13-5','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('105','Submit Draft Kedua','2016-20-5','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('106','Submit Draft Final','2016-13-6','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('107','Evaluasi Final','2016-20-6','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('108','Sidang MKS','2016-13-7','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('109','Batas Pengunggahan Nilai','2016-20-7','2016','1');
-INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('110','Publikasi Nilai','2016-13-8','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('101','Submit Judul','2016-03-20','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('102','Submit Proposal','2016-04-13','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('103','Pengumpulan Berkas','2016-04-20','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('104','Submit Draft Pertama','2016-05-13','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('105','Submit Draft Kedua','2016-05-20','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('106','Submit Draft Final','2016-06-13','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('107','Evaluasi Final','2016-06-20','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('108','Sidang MKS','2016-07-13','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('109','Batas Pengunggahan Nilai','2016-07-20','2016','1');
+INSERT INTO TIMELINE (IdTimeline,NamaEvent,Tanggal,Tahun,Semester) VALUES ('110','Publikasi Nilai','2016-08-13','2016','1');
 
 
 
@@ -435,3 +435,4 @@ INSERT INTO BERKAS (IDBerkas,IdMKS,Nama,Alamat) VALUES ('11159','201612028','Min
 INSERT INTO BERKAS (IDBerkas,IdMKS,Nama,Alamat) VALUES ('11160','201612029','Hubungan Consumer Relations','counter.com');
 
 
+INSERT INTO ADMIN (IdAdmin,Username,Password) VALUES ('1','Elliot','hackerman');
