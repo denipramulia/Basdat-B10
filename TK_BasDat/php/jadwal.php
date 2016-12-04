@@ -5,10 +5,13 @@
     
 	global $conn;
 
+	if(!isset($_SESSION["log_id"])){
+	  	header('Location: login.php');
+	}
+
 	$user_type = $_SESSION["user_type"];
 	$username = $_SESSION["activeuser"];
 	$log_id = $_SESSION["log_id"];
-
 	if ($_SESSION["user_type"] == "mahasiswa") {
 		$query = "SELECT * FROM mata_kuliah_spesial WHERE npm = $log_id";
 		$result = mysqli_query($conn, $query);
@@ -157,6 +160,71 @@
 			$i++;
 		}
 	}
+
+	if ($_SESSION["user_type"] == "admin"){
+		$post = array();
+		$post['mahasiswa'] = array();
+		$post['jenis_sidang'] = array();
+		$post['judul'] = array();
+		$post['tanggal'] = array();
+		$post['jam_mulai'] = array();
+		$post['jam_selesai'] = array();
+		$post['lokasi'] = array();
+		$post['dosen_pembimbing'] = array(array());
+		$post['dosen_penguji'] = array(array());
+		$post['status'] = array();
+
+		$query = "SELECT * FROM mata_kuliah_spesial";
+		$result = mysqli_query($conn, $query);
+
+		$i = 0;
+		while($mks = mysqli_fetch_assoc($result))
+		{
+			$npm = $mks["NPM"];
+			$query = "SELECT * FROM mahasiswa WHERE NPM = $npm";
+			$res = mysqli_query($conn, $query);
+			$mahasiswa = mysqli_fetch_assoc($res);
+			$post['mahasiswa'][$i]    	 = $mahasiswa["Nama"];
+
+			$IdJenisMKS = $mks["IdJenisMKS"];
+			$query = "SELECT * FROM JENISMKS WHERE ID = $IdJenisMKS";
+			$res = mysqli_query($conn, $query);
+			$jenis_MKS = mysqli_fetch_assoc($res);
+			$post['jenis_sidang'][$i]	 = $jenis_MKS["NamaMKS"];
+			
+			$post['judul'][$i]   		 = $mks["Judul"];
+
+			$IdMKS = $mks["IdMKS"];
+			$query = "SELECT * FROM jadwal_sidang WHERE IdMKS = $IdMKS";
+			$res = mysqli_query($conn, $query);
+			$jadwal = mysqli_fetch_assoc($res);
+			$post['tanggal'][$i]    = $jadwal["Tanggal"];
+			$post['jam_mulai'][$i]  = $jadwal["JamMulai"];
+			$post['jam_selesai'][$i]= $jadwal["JamSelesai"];
+			$IDRuangan= $jadwal["IDRuangan"];
+			$query = "SELECT * FROM ruangan WHERE IDRuangan = $IDRuangan";
+			$res = mysqli_query($conn, $query);
+			$ruangan = mysqli_fetch_assoc($res);
+			$post["lokasi"][$i] = $ruangan["NamaRuangan"];
+
+			$query = "SELECT * FROM dosen_penguji INNER JOIN dosen ON dosen_penguji.NIPDosenPenguji = dosen.NIP WHERE IdMKS = $IdMKS";
+			$res = mysqli_query($conn, $query);
+			$j = 0;
+			while($orang_lain = mysqli_fetch_assoc($res)){
+				$post['dosen_penguji'][$i][$j] = $orang_lain["Nama"];
+				$j++;
+			}
+			$query = "SELECT * FROM dosen_pembimbing INNER JOIN dosen ON dosen_pembimbing.NIPdosenpembimbing = dosen.NIP WHERE IdMKS = $IdMKS";
+			$res = mysqli_query($conn, $query);
+			$j = 0;
+			while($orang_lain = mysqli_fetch_assoc($res)){
+				$post['dosen_pembimbing'][$i][$j] = $orang_lain["Nama"];
+				$j++;
+			}
+			
+			$i++;
+		}
+	}
 ?>
 
 <!Doctype html>
@@ -191,85 +259,65 @@
 		<div class="tabel-jadwal container">
 			<?php 
 				if($_SESSION["user_type"] == "admin"){
-					echo 
-					"
-						<div class='row'>
-							<div class='col-md-1'><p id='left'>Sort by: </p></div>
-							<div id='right' class='col-md-9' role='group' aria-label='...'>
-								<button type='button' class='btn btn-default'>Mahasiswa</button>
-								<button type='button' class='btn btn-default'>Jenis Sidang</button>
-								<button type='button' class='btn btn-default'>Waktu</button>
-							</div>
+					echo "
+					<div class='row'>
+						<div class='col-md-1'><p id='left'>Sort by: </p></div>
+						<div id='right' class='col-md-9' role='group' aria-label='...'>
+							<button type='button' class='btn btn-default'>Mahasiswa</button>
+							<button type='button' class='btn btn-default'>Jenis Sidang</button>
+							<button type='button' class='btn btn-default'>Waktu</button>
 						</div>
-						<br>
-						<div class='row'>
-							<table class='table table-striped'>
-								<thead>
-						  			<tr>
-										<th>Mahasiswa</th>
-										<th>Jenis Sidang</th> 
-										<th>Judul</th>
-										<th>Waktu dan Lokasi</th>
-										<th>Dosen Pembimbing</th>
-										<th>Dosen Penguji</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Aan Kurniawan</td>
-										<td>Skripsi</td> 
-									    <td>Sistem Operasi Masa Depan</td>
-									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-									    <td>Ani Sulistyowati</td>
-									    <td>Budi Gunawan</td>
-									    <td>Edit</td>
-									</tr>
-									<tr>
-									    <td>Aan Kurniawan</td>
-										<td>Skripsi</td> 
-									    <td>Sistem Operasi Masa Depan</td>
-									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-									    <td>Ani Sulistyowati</td>
-									    <td>Budi Gunawan</td>
-									    <td>Edit</td>
-									</tr>
-									<tr>
-									    <td>Aan Kurniawan</td>
-										<td>Skripsi</td> 
-									    <td>Sistem Operasi Masa Depan</td>
-									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-									    <td>Ani Sulistyowati</td>
-									    <td>Budi Gunawan</td>
-									    <td>Edit</td>
-									</tr>
-									<tr>
-									    <td>Aan Kurniawan</td>
-										<td>Skripsi</td> 
-									    <td>Sistem Operasi Masa Depan</td>
-									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-									    <td>Ani Sulistyowati</td>
-									    <td>Budi Gunawan</td>
-									    <td>Edit</td>
-									</tr>
-									<tr>
-									    <td>Aan Kurniawan</td>
-										<td>Skripsi</td> 
-									    <td>Sistem Operasi Masa Depan</td>
-									    <td>17 Nov 2016, 16:00 - 17:00, 1101</td>
-									    <td>Ani Sulistyowati</td>
-									    <td>Budi Gunawan</td>
-									    <td>Edit</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div class='row'>
-							<div class='col-md-1 pull-right'>
-								<button id='btn-tambah' class='btn btn-primary'>Tambah</button>
-							</div>
-						</div>
-					";
+					</div>
+					<br>
+					<div class='row'>
+						<table class='table table-striped'>
+							<thead>
+					  			<tr>
+									<th>Mahasiswa</th>
+									<th>Jenis Sidang</th> 
+									<th>Judul</th>
+									<th>Waktu dan Lokasi</th>
+									<th>Dosen Pembimbing</th>
+									<th>Dosen Penguji</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>";
+							for ($i=0; $i < count($post['mahasiswa']); $i++){
+								$mahasiswa = $post['mahasiswa'][$i];
+								$jenis_sidang = $post['jenis_sidang'][$i];
+								$judul = $post['judul'][$i];
+								$tanggal = $post['tanggal'][$i];
+								$jam_mulai = $post['jam_mulai'][$i];
+								$jam_selesai = $post['jam_selesai'][$i];
+								$lokasi = $post['lokasi'][$i];
+								$dosen_pembimbing = $post['dosen_pembimbing'][$i];
+								$dosen_penguji = $post['dosen_penguji'][$i];
+								echo "
+								<tr>
+									<td>$mahasiswa</td>
+						    		<td>$jenis_sidang</td>
+						    		<td>$judul</td>
+						    		<td>$tanggal, $jam_mulai - $jam_selesai, Ruangan $lokasi</td>
+						    		<td>";
+						    		for ($j=0; $j < count($dosen_pembimbing); $j++) { 
+						    			echo $dosen_pembimbing[$j].", ";
+						    		}
+						    		echo
+						    		"</td><td>";
+						    		for ($j=0; $j < count($dosen_penguji); $j++) { 
+						    			echo $dosen_penguji[$j].", ";
+						    		}
+						    		echo
+						    		"</td>
+						    		<td>Edit</td>
+								</tr>";
+							}
+								
+							echo "
+							</tbody>
+						</table>
+					</div>";
 				}
 				if($_SESSION["user_type"] == "mahasiswa"){
 					if($mks['IjinMajuSidang'] == TRUE) {
