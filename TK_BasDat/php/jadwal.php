@@ -339,7 +339,7 @@
 				   	$penguji = $penguji['Nama'];
 					echo "
 					<div class='row'>
-					<table class='table table-reflow'>
+					<table class='table table-reflow' id='tabel-jadwal'>
 						<thead>
 							<th>Judul Tugas Akhir</th>
 							<th>Jadwal Sidang</th>
@@ -425,8 +425,8 @@
 		<footer>
 			
 		</footer>
-		<script type="text/javascript" src=""></script>
-
+		<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="../js/jadwal.js"></script>
 	</body>
 </html>
 

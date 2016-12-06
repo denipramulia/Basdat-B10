@@ -1,5 +1,5 @@
 <?php
-	$conn_string = "host=localhost port=5432 dbname=postgres user=postgres password=chaoskaki";
+	$conn_string = "host=dbpg.cs.ui.ac.id port=5432 dbname=sisidang user=postgres password=";
 	$conn = pg_connect($conn_string);
 	
 	// Check connection
