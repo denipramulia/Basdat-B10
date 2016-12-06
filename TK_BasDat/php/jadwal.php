@@ -245,13 +245,19 @@
 		      <a class="navbar-brand" href="#">SISIDANG</a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <li><a href="home.php">Home</a></li>
-		      <li><a href="#">Tambah Peserta MKS</a></li>
-		      <li><a href="#">Buat Jadwal Sidang MKS</a></li> 
-		      <li><a href="#">Buat Jadwal Non-Sidang Dosen</a></li>
-		      <li class="active"><a href="#">Lihat Jadwal Sidang</a></li>
-		      <li><a href="#">Lihat Daftar MKS</a></li> 
-		      <li><a href="logout.php">Logout</a></li> 
+		    <?php
+		      echo '<li><a href="home.php">Home</a></li>';
+		      echo '<li><a href="#">Tambah Peserta MKS</a></li>';
+		      if(!_SESSION['user_type'] == "admin"){
+		      	echo '<li><a href="#">Buat Jadwal Sidang MKS</a></li>';
+		      } 
+		      if(!_SESSION['user_type'] == "admin" || !_SESSION['user_type'] == "dosen" ){
+		      echo '<li><a href="#">Buat Jadwal Non-Sidang Dosen</a></li>';
+		  	  }
+		      echo '<li class="active"><a href="#">Lihat Jadwal Sidang</a></li>';
+		      echo '<li><a href="#">Lihat Daftar MKS</a></li>'; 
+		      echo '<li><a href="logout.php">Logout</a></li>;' 
+		    ?>
 		    </ul>
 		  </div>
 		</nav>

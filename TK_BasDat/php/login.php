@@ -15,8 +15,8 @@
 			$mypassword = $_POST["password"];
 
 			$query = "SELECT * FROM MAHASISWA WHERE Username='$myusername' AND Password='$mypassword'";
-			$result = mysqli_query($conn, $query);
-			$row = mysqli_fetch_assoc($result);
+			$result = pg_query($conn, $query);
+			$row = pg_fetch_assoc($result);
 			if($row["Username"] == $myusername)
 			{
 				if($row["Password"] == $mypassword)
@@ -28,8 +28,8 @@
 				}
 			}
 			$query = "SELECT * FROM dosen WHERE Username='$myusername' AND Password='$mypassword'";
-			$result = mysqli_query($conn, $query);
-			$row = mysqli_fetch_assoc($result);
+			$result = pg_query($conn, $query);
+			$row = pg_fetch_assoc($result);
 			if($row["Username"] == $myusername)
 			{
 				if($row["Password"] == $mypassword)
@@ -42,8 +42,8 @@
 			}
 
 			$query = "SELECT * FROM admin WHERE Username='$myusername' AND Password='$mypassword'";
-			$result = mysqli_query($conn, $query);
-			$row = mysqli_fetch_assoc($result);
+			$result = pg_query($conn, $query);
+			$row = pg_fetch_assoc($result);
 			if($row["Username"] == $myusername)
 			{
 				if($row["Password"] == $mypassword)

@@ -1,8 +1,8 @@
 <?php
   session_start();
   $user = '';
-  if (!isset($_SESSION['loggedRole'])) {
-      header('Location: ../Login/index.php');
+  if (!isset($_SESSION['user_type'])) {
+      header('Location: login.php');
   } else {
       $nav = '';
   }
@@ -16,86 +16,34 @@
     <script src="../../libs/js/jquery.min.js" type="text/javascript"></script>
     <script src="../../libs/js/bootstrap.min.js"></script>
     <script src="../../src/js/generator.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="../../libs/css/reset.css">
-    <link rel="stylesheet" href="../../libs/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
 </head>
 <body>
 <header>
-<?php
-    if ($_SESSION['loggedRole'] == 'admin') {
-        echo '<nav class="navbar navbar-inverse">
-        <div class="container">
-          <a class="navbar-brand" href="../HalamanUtama/admin.php"> Sisidang </a>
-          <ul class="nav navbar-nav">
-            <li class="nav-item">
-              <li class="dropdown">
-                <a href="#" data-toggle="dropdown"> Mata Kuliah Spesial <span class="arrow">&#9660;  </span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="../mks/listMKS.php"> Lihat Daftar </a></li>
-                  <li><a href="../mks/createMKS.php"> Tambah MKS </a></li>
-                </ul>
-              </li> <!--dropdown-->
-            </li> <!--nav-item-->
-            <li class="nav-item">
-              <li class="dropdown">
-              <a href="#" data-toggle="dropdown">Jadwal Sidang <span class="arrow">&#9660;  </span></a>
-              <ul class="dropdown-menu">
-                <li><a href="../LihatJadwalSidang/jadwalAdmin.php">Lihat Daftar</a></li>
-                <li><a href="../JadwalSidang/create.php">Buat</a></li>
-              </ul>
-              </li> <!--dropdown-->
-            </li> <!--nav-item-->
-           <li class="nav-item">
-             <li class="dropdown">
-                <a href="#" data-toggle="dropdown"> Jadwal Non Sidang <span class="arrow">&#9660;  </span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="../JadwalNonSidang/lihatNonSidang.php"> Tambah Jadwal Non Sidang </a></li>
-                  <li><a href="../JadwalNonSidang/daftarNonSidang.php"> Daftar Jadwal Non Sidang </a></li>
-                </ul>
-              </li> <!--dropdown-->
-            </li><!--nav-item-->
-            <li class="nav-item">
-              <li><a href="../IzinMajuSidang/admin.php">Izin Jadwal Sidang</a></li>
-            </li><!--nav-item-->
-            <li class="nav-item">
-              <li><a href="../Logout/logout.php">Logout</a></li>
-            </li><!--nav-item-->
-          </ul>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">SISIDANG</a>
         </div>
-      </nav>';
-    } else {
-        echo '<nav class="navbar navbar-inverse">
-        <div class="container">
-          <a class="navbar-brand" href="../HalamanUtama/dosen.php"> Sisidang </a>
-          <ul class="nav navbar-nav">
-            <li class="nav-item">
-              <li><a href="../mks/index.php" > Mata Kuliah Spesial</a></li>
-            </li> <!--nav-item-->
-            <li class="nav-item">
-              <li><a href="../LihatJadwalSidang/jadwalDosen.php" >Jadwal Sidang </a></li>
-            </li> <!--nav-item-->
-            <li class="nav-item">
-             <li class="dropdown">
-                <a href="#" data-toggle="dropdown"> Jadwal Non Sidang <span class="arrow">&#9660;  </span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="../JadwalNonSidang/lihatNonSidang.php"> Tambah Jadwal Non Sidang </a></li>
-                  <li><a href="../JadwalNonSidang/daftarNonSidang.php"> Daftar Jadwal Non Sidang </a></li>
-                </ul>
-              </li> <!--dropdown-->
-            </li><!--nav-item-->
-            <li class="nav-item">
-              <li><a href="../IzinMajuSidang/admin.php">Izin Jadwal Sidang</a></li>
-            </li><!--nav-item-->
-            <li class="nav-item">
-              <li><a href="../Logout/logout.php">Logout</a></li>
-            </li><!--nav-item-->
-          </ul>
-        </div>
-      </nav>';
-    }
-?>
-
+        <ul class="nav navbar-nav">
+        <?php
+          echo '<li><a href="home.php">Home</a></li>';
+          echo '<li><a href="#">Tambah Peserta MKS</a></li>';
+          if(!_SESSION['user_type'] == "admin"){
+            echo '<li><a href="#">Buat Jadwal Sidang MKS</a></li>';
+          } 
+          if(!_SESSION['user_type'] == "admin" || !_SESSION['user_type'] == "dosen" ){
+          echo '<li><a href="#">Buat Jadwal Non-Sidang Dosen</a></li>';
+          }
+          echo '<li class="active"><a href="#">Lihat Jadwal Sidang</a></li>';
+          echo '<li><a href="#">Lihat Daftar MKS</a></li>'; 
+          echo '<li><a href="logout.php">Logout</a></li>;' 
+        ?>
+        </ul>
+      </div>
+    </nav>
 </header>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -104,7 +52,7 @@
                         <div class="pull-left">
                             <h2> Mata Kuliah Spesial </h2>
                             <?php
-                                if ($_SESSION['loggedRole'] == 'admin') {
+                                if ($_SESSION['user_type'] == 'admin') {
                                     echo '<a class="btn btn-primary" href="createMKS.php"> Tambah MKS </a>';
                                 }
                             ?>
